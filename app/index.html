@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>MiTV</title>
-<link rel="stylesheet" href="css/app-v15.css">
+<link rel="stylesheet" href="css/app-v16.css">
 </head>
 <body>
 <div id="app">
@@ -17,7 +17,9 @@
       <video id="video" preload="none"></video>
     </div>
     <div class="spinner hidden" id="spinner"></div>
+    <div class="pclock hidden" id="pclock"></div>
     <div class="osd hidden" id="osd">
+      <div class="pinfo" id="osdInfo"></div>
       <div class="ptitle" id="osdTitle"></div>
       <div class="psub" id="osdSub"></div>
       <div class="seekbar" id="osdSeek"><div id="osdSeekFill" style="width:0%"></div></div>
@@ -34,6 +36,6 @@
 </div>
 <script src="js/polyfills.js"></script>
 <script src="js/webos.js"></script>
-<script src="js/app-v21.js"></script>
+<script src="js/app-v22.js"></script>
 </body>
 </html>
