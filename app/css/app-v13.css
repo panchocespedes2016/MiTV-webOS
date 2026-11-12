@@ -1,0 +1,302 @@
+/* MiTV webOS v1.0.0 — tema oscuro espejo de MiTV Fire TV v1.0.22.
+   Diseñado para 1920x1080. Las medidas en dp del Firestick se convierten
+   a px con factor 2 (xhdpi). Sin variables CSS ni grid (Chromium 38). */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; }
+body {
+  background: #0D0D0F;
+  color: #EEEEEE;
+  font-family: sans-serif;
+  font-size: 28px;
+}
+#app { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background: #0D0D0F; overflow: hidden; }
+
+/* ---------- Utilidades ---------- */
+.hidden { display: none !important; }
+.dim { color: #AAAAAA; }
+.faint { color: #777777; }
+.star { color: #FFD500; }
+.ellipsis { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
+/* ---------- Barra de pestañas ---------- */
+#tabs {
+  display: flex; flex-direction: row; align-items: center;
+  padding: 20px 80px 0 80px; height: 78px;
+}
+.tab {
+  font-size: 32px; padding: 22px 16px; margin-right: 8px;
+  color: #EEEEEE; background: transparent; border: 3px solid transparent;
+  border-radius: 18px; cursor: default; white-space: nowrap;
+}
+.tab.selected { background: #C1111B; }
+.tab.focused {
+  background: #C1111B;
+  border-color: #C1111B;
+  box-shadow: 0 0 0 6px #FFFFFF !important;
+  outline: none;
+}
+
+/* ---------- Contenido principal ---------- */
+#content { position: absolute; left: 80px; right: 80px; top: 98px; bottom: 70px; }
+.screen { position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; }
+
+/* Barra de ayuda inferior */
+#helpbar {
+  position: absolute; left: 80px; right: 80px; bottom: 0; height: 56px;
+  font-size: 28px; color: #777777; padding-top: 16px; padding-bottom: 24px;
+  overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+}
+
+/* ---------- Foco (dos capas: exterior rojo + interior blanco) ---------- */
+.focusable { outline: none; }
+.focused {
+  border-color: #FFFFFF !important;
+  box-shadow: 0 0 0 6px #D21F2B, inset 0 0 0 3px #FFFFFF !important;
+}
+.chanrow.focused, .search-row.focused, .eprow.focused, .setrow.focused, .dialog .opt.focused { background: #1E1E22; }
+
+/* ---------- Inicio ---------- */
+.home-section { margin-bottom: 32px; }
+.home-section h2 { font-size: 40px; font-weight: bold; margin-bottom: 4px; }
+.home-section .sub { font-size: 30px; color: #AAAAAA; margin-bottom: 16px; }
+.home-row { display: flex; flex-direction: row; overflow: hidden; }
+.home-card {
+  flex: 0 0 auto; width: 500px; margin-right: 24px;
+  background: #19191C; border: 2px solid #2A2A2F; border-radius: 20px;
+  padding: 16px; overflow: hidden;
+}
+.home-card img { width: 100%; height: 280px; object-fit: cover; background: #19191C; display: block; }
+.home-card .t { font-size: 30px; font-weight: bold; margin-top: 12px; }
+.home-card .s { font-size: 26px; color: #AAAAAA; margin-top: 4px; }
+.home-card .prog { height: 8px; background: #2A2A2F; margin-top: 10px; border-radius: 4px; overflow: hidden; }
+.home-card .prog > div { height: 100%; background: #D21F2B; }
+.home-card .chanlogo { width: 340px; height: 192px; background: #FFFFFF; border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.home-card .chanlogo img { width: 100%; height: 100%; object-fit: contain; }
+.home-card .channame { font-size: 28px; font-weight: bold; text-align: center; margin-top: 10px; }
+.home-card.pop { width: 300px; }
+.home-card.pop img { height: 420px; }
+
+/* ---------- TV en vivo / Deportes / Guía: 3 columnas ---------- */
+.live-wrap { display: flex; flex-direction: row; height: 100%; }
+.catbar {
+  width: 430px; flex: 0 0 430px; background: #131315; padding: 16px;
+  margin-right: 28px; overflow: hidden;
+}
+.cat {
+  font-size: 32px; padding: 24px 22px; margin-bottom: 8px;
+  background: #19191C; border: 2px solid #2A2A2F; border-radius: 20px;
+  color: #AAAAAA; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+}
+.cat.selected { color: #EEEEEE; font-weight: bold; }
+.chanlist { flex: 1 1 auto; overflow: hidden; padding-right: 8px; }
+.chanrow {
+  display: flex; flex-direction: row; align-items: center;
+  padding: 20px 28px; margin-bottom: 18px;
+  background: #19191C; border: 2px solid #2A2A2F; border-radius: 24px;
+}
+.chanrow .num { width: 112px; flex: 0 0 112px; font-size: 30px; color: #777777; }
+.chanrow .fav { width: 60px; flex: 0 0 60px; font-size: 40px; color: #FFD500; text-align: center; }
+.chanrow .fav.off { color: #777777; }
+.chanrow .logo {
+  width: 96px; height: 96px; flex: 0 0 96px; background: #FFFFFF;
+  border: 2px solid #444444; border-radius: 16px; margin-right: 20px;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+  font-size: 22px; font-weight: bold; color: #222222; text-align: center;
+}
+.chanrow .logo img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
+.live-wrap.guide .chanrow .logo { width: 108px; height: 108px; flex: 0 0 108px; }
+.chanrow .info { flex: 1 1 auto; overflow: hidden; }
+.chanrow .name { font-size: 34px; font-weight: bold; }
+.chanrow .progname { font-size: 28px; color: #AAAAAA; margin-top: 4px; }
+.chanrow .pbar { height: 8px; background: #2A2A2F; margin-top: 12px; border-radius: 4px; overflow: hidden; }
+.chanrow .pbar > div { height: 100%; background: #3B82F6; }
+.chanrow .hours { font-size: 24px; color: #777777; margin-top: 6px; }
+
+/* Panel de preview */
+.preview {
+  width: 780px; flex: 0 0 780px; background: #131315; padding: 32px;
+  margin-left: 28px; overflow: hidden;
+}
+.preview .vidbox { width: 716px; height: 402px; background: #000000; }
+.preview .vidbox video { width: 716px; height: 402px; display: block; background: #000000; }
+.preview .ptitle { font-size: 40px; font-weight: bold; margin-top: 20px; }
+.preview .pmeta { font-size: 28px; color: #AAAAAA; margin-top: 8px; }
+.preview .pdesc { font-size: 28px; color: #AAAAAA; margin-top: 12px; }
+.preview .pnext { font-size: 28px; margin-top: 16px; }
+.preview .pnext .lbl { color: #AAAAAA; }
+
+/* ---------- Películas / Series: parrilla 5 columnas ---------- */
+.vod-wrap { display: flex; flex-direction: row; height: 100%; }
+.vod-wrap .catbar { width: 500px; flex: 0 0 500px; }
+.vodgrid { flex: 1 1 auto; overflow: hidden; padding: 8px 0 0 8px; }
+.vodrow { display: flex; flex-direction: row; margin-bottom: 32px; }
+.vodcard {
+  width: 224px; flex: 0 0 224px; margin-right: 24px;
+  background: #19191C; border: 2px solid #2A2A2F; border-radius: 20px;
+  overflow: hidden; padding-bottom: 12px;
+}
+.vodcard img { width: 100%; height: 380px; object-fit: cover; background: #19191C; display: block; }
+.vodcard .t { font-size: 28px; font-weight: bold; margin: 12px 16px 0 16px; }
+.vodcard .s { font-size: 24px; color: #AAAAAA; margin: 6px 16px 0 16px; }
+.vodcard .st { font-size: 24px; color: #FFD500; margin: 6px 16px 0 16px; }
+
+/* ---------- Ficha de película / serie ---------- */
+.detail { padding: 52px 80px; overflow: hidden; height: 100%; }
+.detail .head { display: flex; flex-direction: row; }
+.detail .poster { width: 380px; height: 530px; object-fit: cover; background: #19191C; border-radius: 20px; flex: 0 0 380px; }
+.detail .dinfo { flex: 1 1 auto; margin-left: 44px; overflow: hidden; }
+.detail .dtitle { font-size: 60px; font-weight: bold; }
+.detail .dmeta { font-size: 32px; color: #AAAAAA; margin-top: 10px; }
+.detail .dplot { font-size: 32px; color: #AAAAAA; margin-top: 24px; }
+.detail .dextra { font-size: 28px; color: #AAAAAA; margin-top: 16px; }
+.detail .dextra div { margin-top: 4px; }
+.detail .btnrow { display: flex; flex-direction: row; margin-top: 44px; }
+.btn {
+  font-size: 34px; padding: 22px 40px; margin-right: 24px;
+  background: #26262B; border: 2px solid #2A2A2F; border-radius: 18px;
+  color: #EEEEEE; white-space: nowrap;
+}
+.btn.focused { background: #C1111B; border-color: #FFFFFF !important; box-shadow: inset 0 0 0 3px #FFFFFF !important; }
+.detail .epstatus { font-size: 30px; color: #AAAAAA; margin-top: 32px; }
+.eplist { height: 1040px; margin-top: 24px; overflow: hidden; }
+.eprow {
+  display: flex; flex-direction: row; align-items: center;
+  font-size: 32px; padding: 24px 28px; margin-bottom: 16px;
+  background: #19191C; border: 2px solid #2A2A2F; border-radius: 24px;
+}
+.eprow .epstate { margin-left: auto; color: #FFD500; white-space: nowrap; padding-left: 24px; }
+
+/* ---------- Búsqueda ---------- */
+.search-input {
+  width: 100%; font-size: 38px; background: #19191C; color: #EEEEEE;
+  border: 2px solid #2A2A2F; border-radius: 20px;
+  padding: 24px 32px; outline: none;
+}
+.search-hint { font-size: 30px; color: #777777; margin-top: 20px; }
+.search-results { margin-top: 28px; overflow: hidden; }
+.search-results h3 { font-size: 34px; font-weight: bold; margin: 24px 0 12px 0; }
+.search-row {
+  display: flex; flex-direction: row; align-items: center;
+  padding: 18px 24px; margin-bottom: 16px;
+  background: #19191C; border: 2px solid #2A2A2F; border-radius: 24px;
+}
+.search-row img { width: 108px; height: 108px; object-fit: contain; background: #FFFFFF; border-radius: 12px; margin-right: 24px; }
+.search-row img.poster { width: 88px; height: 124px; object-fit: cover; background: #19191C; border-radius: 8px; }
+.search-row .t { font-size: 34px; font-weight: bold; }
+.search-row .s { font-size: 26px; color: #AAAAAA; margin-top: 4px; }
+
+/* ---------- Ajustes ---------- */
+.settings-sec { margin-bottom: 36px; }
+.settings-sec h2 { font-size: 40px; font-weight: bold; }
+.settings-sec .sub { font-size: 30px; color: #AAAAAA; margin-bottom: 16px; }
+.setrow {
+  padding: 24px 32px; margin-bottom: 18px;
+  background: #19191C; border: 2px solid #2A2A2F; border-radius: 24px;
+}
+.setrow .t { font-size: 34px; font-weight: bold; }
+.setrow .s { font-size: 26px; color: #AAAAAA; margin-top: 6px; }
+
+/* ---------- Editor de listas / Configuración inicial ---------- */
+.editor { padding: 56px 88px; height: 100%; overflow: hidden; }
+.editor h1 { font-size: 52px; font-weight: bold; margin-bottom: 28px; }
+.editor .typerow { display: flex; flex-direction: row; margin-bottom: 20px; }
+.editor .typerow .btn.unselected { opacity: 0.55; }
+.editor label { display: block; font-size: 28px; color: #AAAAAA; margin-top: 24px; margin-bottom: 8px; }
+.editor input {
+  width: 100%; font-size: 34px; background: #19191C; color: #EEEEEE;
+  border: 2px solid #2A2A2F; border-radius: 18px;
+  padding: 22px 28px; outline: none;
+}
+/* Campo en edición (teclado abierto): borde verde, distinto del anillo de navegación. */
+.editor input:focus, .search-input:focus {
+  border-color: #00E676 !important;
+  box-shadow: 0 0 0 6px rgba(0,230,118,.35) !important;
+}
+.editor .err { font-size: 30px; color: #D21F2B; margin-top: 20px; min-height: 40px; }
+.editor .save { margin-top: 24px; font-size: 36px; }
+
+/* ---------- Diálogos ---------- */
+#dialogOverlay {
+  position: absolute; left: 0; top: 0; width: 1920px; height: 1080px;
+  background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center;
+}
+.dialog {
+  width: 920px; background: #131315; border: 2px solid #2A2A2F; border-radius: 24px;
+  padding: 40px 48px;
+}
+.dialog h2 { font-size: 38px; font-weight: bold; margin-bottom: 24px; }
+.dialog .opt {
+  font-size: 34px; padding: 22px 28px; margin-bottom: 16px;
+  background: #19191C; border: 2px solid #2A2A2F; border-radius: 24px;
+}
+.dialog .msg { font-size: 32px; color: #AAAAAA; margin-bottom: 28px; }
+
+/* ---------- Reproductor (overlay, un solo <video>) ---------- */
+#player {
+  position: absolute; left: 0; top: 0; width: 1920px; height: 1080px;
+  background: #000000;
+}
+#player .vidwrap { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+#player .vidwrap video { width: 1920px; height: 1080px; display: block; background: #000000; }
+@-webkit-keyframes spin { from { -webkit-transform: rotate(0deg); transform: rotate(0deg); } to { -webkit-transform: rotate(360deg); transform: rotate(360deg); } }
+@keyframes spin { from { -webkit-transform: rotate(0deg); transform: rotate(0deg); } to { -webkit-transform: rotate(360deg); transform: rotate(360deg); } }
+#player .spinner {
+  position: absolute; left: 50%; top: 50%; width: 100px; height: 100px;
+  margin-left: -50px; margin-top: -50px; border: 10px solid #2A2A2F;
+  border-top-color: #C1111B; border-radius: 50%;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+#player .osd {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: rgba(16,16,18,0.8); padding: 24px 80px 32px 80px;
+}
+#player .osd .ptitle { font-size: 44px; font-weight: bold; }
+#player .osd .psub { font-size: 30px; color: #AAAAAA; margin-top: 4px; }
+#player .osd .seekbar { height: 10px; background: #2A2A2F; margin-top: 16px; border-radius: 5px; overflow: hidden; }
+#player .osd .seekbar > div { height: 100%; background: #C1111B; }
+#player .osd .btnrow { display: flex; flex-direction: row; align-items: center; margin-top: 12px; }
+#player .osd .ptime { flex: 1 1 auto; text-align: center; font-size: 30px; color: #AAAAAA; }
+
+/* ---------- Toast ---------- */
+#toast {
+  position: absolute; left: 50%; bottom: 120px; transform: translateX(-50%);
+  background: #26262B; border: 2px solid #2A2A2F; border-radius: 18px;
+  color: #EEEEEE; font-size: 32px; padding: 20px 44px; white-space: nowrap;
+}
+
+/* ---------- Pantalla de carga ---------- */
+#loading {
+  position: absolute; left: 0; top: 0; width: 1920px; height: 1080px;
+  background: #0D0D0F; display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+}
+#loading .logo { font-size: 120px; font-weight: bold; }
+#loading .logo .red { color: #C1111B; }
+#loading .msg { font-size: 36px; color: #AAAAAA; margin-top: 30px; }
+
+/* ---------- Marquesina ---------- */
+.mq { overflow: hidden; white-space: nowrap; }
+.mq-in { display: inline-block; white-space: nowrap; will-change: transform; }
+
+/* ---------- Logos con inicial de respaldo ---------- */
+.chanrow .logo { position: relative; }
+.chanrow .logo img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: contain; padding: 8px; background: #FFFFFF; }
+.home-card .chanlogo { position: relative; }
+.home-card .chanlogo img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: contain; background: #FFFFFF; }
+
+/* ---------- v18: fondo de la ficha y botones de temporada ---------- */
+#detailBg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background-size: cover; background-position: center center; }
+#detailScrim { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background: linear-gradient(180deg, rgba(13,13,15,0.86) 0%, rgba(13,13,15,0.78) 42%, rgba(13,13,15,0.93) 100%); }
+.seasons { display: flex; flex-direction: row; margin-top: 24px; }
+.sbtn { font-size: 34px; padding: 20px 44px; margin-right: 24px; background: #26262B; border: 2px solid #2A2A2F; border-radius: 18px; color: #EEEEEE; white-space: nowrap; }
+.sbtn.selected { background: #C1111B; }
+.sbtn.focused { background: #C1111B; border-color: #FFFFFF !important; box-shadow: inset 0 0 0 3px #FFFFFF !important; }
+.eprow .epcode { color: #FFD500; font-weight: bold; flex: 0 0 auto; }
+.eprow .epmid { flex: 1 1 auto; min-width: 0; margin-left: 16px; }
+.eprow .eptitle { font-size: 32px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.eprow .epplot { font-size: 24px; color: #AAAAAA; margin-top: 4px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
+/* ---------- v19: al desplazar, la fila enfocada recorta limpio (sin "…") ---------- */
+.eprow.focused .eptitle, .eprow.focused .epplot { text-overflow: clip; }
