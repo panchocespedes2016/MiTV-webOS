@@ -1,0 +1,21 @@
+# Build outputs
+*.ipk
+
+# Evidencia local de la TV (contiene el host real del proveedor): nunca a GitHub
+otro-modelo-tv-20261112/
+
+# Servidor local de pruebas en la TV: vía rechazada por el usuario (ningún
+# servidor, ni siquiera en la TV) y contiene el host real del proveedor
+service/mitv_fetch_server.js
+
+# Notas de trabajo con IPs de la red local (quedan en el workspace)
+notes/webos-spec.md
+notes/diagnosis-2026-11-09.md
+
+# CLI de webOS desempaquetado (38 MB) y su tarball: regenerable con npm pack
+tools/package/
+tools/*.tgz
+
+# Basura
+*.log
+.DS_Store

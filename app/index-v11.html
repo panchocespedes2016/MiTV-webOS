@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>MiTV</title>
+<link rel="stylesheet" href="css/app-v10.css">
+</head>
+<body>
+<div id="app">
+  <div id="tabs"></div>
+  <div id="content"></div>
+  <div id="helpbar"></div>
+
+  <!-- Reproductor: UN SOLO <video>, compartido entre preview y pantalla completa. -->
+  <div id="player" class="hidden">
+    <div class="vidwrap" id="playerVidWrap">
+      <video id="video" preload="none"></video>
+    </div>
+    <div class="spinner hidden" id="spinner"></div>
+    <div class="osd hidden" id="osd">
+      <div class="ptitle" id="osdTitle"></div>
+      <div class="psub" id="osdSub"></div>
+      <div class="seekbar"><div id="osdSeekFill" style="width:0%"></div></div>
+      <div class="ptime" id="osdTime"></div>
+      <div class="btnrow" id="osdButtons"></div>
+    </div>
+  </div>
+
+  <div id="dialogOverlay" class="hidden"></div>
+  <div id="toast" class="hidden"></div>
+  <div id="loading">
+    <div class="logo">Mi<span class="red">TV</span></div>
+    <div class="msg">Cargando…</div>
+  </div>
+</div>
+<script src="js/polyfills.js"></script>
+<script src="js/webos.js"></script>
+<script src="js/app-v10.js"></script>
+</body>
+</html>

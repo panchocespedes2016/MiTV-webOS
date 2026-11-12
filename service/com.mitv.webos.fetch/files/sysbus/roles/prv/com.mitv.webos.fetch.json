@@ -1,0 +1,1 @@
+{"permissions":[{"inbound":["*"],"outbound":["*"],"service":"com.mitv.webos.fetch"}],"role":{"allowedNames":["com.mitv.webos.fetch"],"exeName":"js","type":"regular"}}

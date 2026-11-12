@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=com.mitv.webos.fetch
+Exec=/media/developer/apps/usr/palm/services/com.mitv.webos.fetch/run-root.sh
+Type=dynamic

@@ -1,0 +1,1 @@
+{"description":"MiTV HTTP fetch service (bypasses browser XHR chunked hang)","id":"com.mitv.webos.fetch","services":[{"name":"com.mitv.webos.fetch"}]}

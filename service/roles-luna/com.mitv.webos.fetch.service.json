@@ -1,0 +1,12 @@
+{
+  "appId": "com.mitv.webos.fetch",
+  "type": "regular",
+  "allowedNames": ["com.mitv.webos.fetch"],
+  "permissions": [
+    {
+      "service": "com.mitv.webos.fetch",
+      "outbound": ["*"],
+      "inbound": ["*"]
+    }
+  ]
+}

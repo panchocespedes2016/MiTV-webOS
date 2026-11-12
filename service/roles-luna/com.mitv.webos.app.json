@@ -1,0 +1,8 @@
+{
+  "appId": "com.mitv.webos",
+  "type": "regular",
+  "allowedNames": ["com.mitv.webos-*"],
+  "permissions": [
+    { "service": "com.mitv.webos-*", "outbound": ["*"] }
+  ]
+}
